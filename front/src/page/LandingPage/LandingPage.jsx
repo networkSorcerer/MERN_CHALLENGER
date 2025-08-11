@@ -1,5 +1,3 @@
-import "./style/App.css";
-
 function LandingPage() {
   return (
     <>

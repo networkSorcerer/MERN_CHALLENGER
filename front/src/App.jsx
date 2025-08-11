@@ -1,10 +1,12 @@
-import "./App.css";
+import AppLayout from "./Layout/AppLayout.jsx";
 import AppRouter from "./routes/AppRouter.jsx";
 
 function App() {
   return (
     <div>
-      <AppRouter />
+      <AppLayout>
+        <AppRouter />
+      </AppLayout>
     </div>
   );
 }
