@@ -1,4 +1,4 @@
 const express = require("express");
 const router = express.Router();
-const authController = require("../controller/auth.controller.js");
+const authController = require("../controller/auth.controller");
 router.post("/google", authController.loginWithGoogle);
