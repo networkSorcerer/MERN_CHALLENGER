@@ -7,6 +7,7 @@ const handleGoogleLogin = async (googleData) => {
   dispatch(loginWithGoogle(googleData.credential));
 };
 const LoginPage = () => {
+  console.log("Login Page google api id ", GOOGLE_CLIENT_ID);
   return (
     <div>
       <h1>Challenger</h1>
