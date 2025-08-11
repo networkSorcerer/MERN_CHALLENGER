@@ -1,8 +1,11 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { GoogleOAuthProvider } from "@react-oauth/google";  
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useDispatch } from "react-redux";
+import { loginWithGoogle } from "../../features/user/userSlice";
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const handleGoogleLogin = async (googleData) => {
+  const dispatch = useDispatch();
   //구글 로그인 하기
   dispatch(loginWithGoogle(googleData.credential));
 };
