@@ -26,7 +26,6 @@ const userSlice = createSlice({
     loading: false,
   },
   reducers: {
-    // 여기 꼭 reducers여야 함!
     clearErrors: (state) => {
       state.loginError = null;
       state.registrationError = null;
