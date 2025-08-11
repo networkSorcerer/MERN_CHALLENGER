@@ -1,5 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
-import { GoogleOAuthProvider } from "@react-oauth/google/dist";
+import { GoogleOAuthProvider } from "@react-oauth/google";  
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const handleGoogleLogin = async (googleData) => {
