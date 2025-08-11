@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes } from "react-router";
+import { Route, Routes } from "react-router";
 import LoginPage from "../page/LoginPage/LoginPage";
 
 const AppRouter = () => {
