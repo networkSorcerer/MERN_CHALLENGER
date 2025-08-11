@@ -6,7 +6,7 @@ const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const userSchema = Schema(
   {
     email: { type: String, required: true, unique: true },
-    password: { type: String, requird: true },
+    password: { type: String, required: true },
     name: { type: String, required: true },
     level: { type: String, default: "white" },
     auth: { type: String, default: "member" },
@@ -19,7 +19,7 @@ userSchema.method.toJSON = function () {
   delete obj.password;
   delete obj.__v;
   delete obj.updatedAt;
-  delete obj.createAt;
+  delete obj.createdAt;
   return obj;
 };
 
