@@ -5,12 +5,12 @@ import { useLocation } from "react-router";
 const AppLayout = ({ children }) => {
   const location = useLocation();
   const dispatch = useDispatch();
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    if (token) {
-      dispatch(loginWithToken());
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = sessionStorage.getItem("token");
+  //   if (token) {
+  //     dispatch(loginWithToken());
+  //   }
+  // }, []);
 
   return <div></div>;
 };
