@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User");
-const sparringSchema = Schema(
+const reservationSchema = Schema(
   {
-    result: { type: String, requird: true },
     memo: { type: String, required: true },
     confirm: { type: Boolean, default: false },
     user: { type: mongoose.ObjectId, ref: User },
@@ -13,7 +12,7 @@ const sparringSchema = Schema(
   { timestamps: true }
 );
 
-sparringSchema.method.toJSON = function () {
+reservationSchema.method.toJSON = function () {
   const obj = this._doc;
   delete obj.__v;
   delete obj.updatedAt;
@@ -21,5 +20,5 @@ sparringSchema.method.toJSON = function () {
   return obj;
 };
 
-const Sparring = mongoose.model("Sparring", sparringSchema);
-module.exports = Sparring;
+const Reservation = mongoose.model("Reservation", reservationSchema);
+module.exports = Reservation;
