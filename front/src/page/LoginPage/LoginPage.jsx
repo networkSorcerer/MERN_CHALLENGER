@@ -3,6 +3,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { loginWithGoogle } from "../../features/user/userSlice";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const LoginPage = () => {
@@ -12,9 +13,11 @@ const LoginPage = () => {
   const handleGoogleLogin = async (googleData) => {
     dispatch(loginWithGoogle(googleData.credential));
   };
-  if (user) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <div>
