@@ -1,5 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { build } from "vite";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const loginWithGoogle = createAsyncThunk(
   "user/loginWithGoogle",
@@ -23,13 +22,15 @@ const userSlice = createSlice({
     loginError: null,
     registrationError: null,
     success: false,
+    loading: false,
   },
-  reducer: {
-    cleaerErrors: (state) => {
+  reducers: {
+    // 여기 꼭 reducers여야 함!
+    clearErrors: (state) => {
       state.loginError = null;
       state.registrationError = null;
     },
-    cleaerUser: (state) => {
+    clearUser: (state) => {
       state.user = null;
     },
   },
@@ -49,5 +50,6 @@ const userSlice = createSlice({
       });
   },
 });
+
 export const { clearErrors, clearUser } = userSlice.actions;
 export default userSlice.reducer;
