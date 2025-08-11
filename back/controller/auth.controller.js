@@ -24,7 +24,7 @@ authController.loginWithGoogle = async (req, res) => {
       user = new User({ name, email, password: newPassword });
       await user.save();
     }
-    const sessionToken = await user.generateToke();
+    const sessionToken = await user.generateToken();
     res.status(200).json({ status: "success", user, token: sessionToken });
   } catch (error) {
     res.status(400).json({ status: "fail", error: error.message });
