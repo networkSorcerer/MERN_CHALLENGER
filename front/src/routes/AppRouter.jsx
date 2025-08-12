@@ -11,6 +11,10 @@ const AppRouter = () => {
       <Route element={<PrivateRoute permissionLevel="member" />}>
         {" "}
         <Route path="/main" element={<LandingPage />} />
+        <Route path="/main" element={<LandingPage />} />
+        <Route path="/main" element={<LandingPage />} />
+        <Route path="/main" element={<LandingPage />} />
+        <Route path="/main" element={<LandingPage />} />
       </Route>
     </Routes>
   );
