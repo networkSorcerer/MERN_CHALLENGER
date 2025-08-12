@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import LoginPage from "../page/LoginPage/LoginPage.jsx";
+import MainPage from "../page/MainPage/MainPage.jsx";
 import LandingPage from "../page/LandingPage/LandingPage.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/" element={<MainPage />} />
       <Route element={<PrivateRoute permissionLevel="member" />}>
         {" "}
         <Route path="/main" element={<LandingPage />} />
