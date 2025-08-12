@@ -9,7 +9,10 @@ const AppRouter = () => {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/main" element={<LandingPage />} />
-      <Route element={<PrivateRoute permissionLevel="admin" />}></Route>
+      <Route element={<PrivateRoute permissionLevel="member" />}>
+        {" "}
+        <Route path="/main" element={<LandingPage />} />
+      </Route>
     </Routes>
   );
 };
