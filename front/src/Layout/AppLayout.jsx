@@ -63,7 +63,7 @@ const AppLayout = ({ children }) => {
         }}
       >
         <Toolbar />
-        <LoginPage />
+        {!token ? <LoginPage /> : <Typography>logout</Typography>}
       </Drawer>
 
       {/* 메인 콘텐츠 영역 */}
