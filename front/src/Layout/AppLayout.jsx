@@ -1,95 +1,74 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
-import { Outlet } from "react-router-dom";
-
-// MUI imports
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-
-// MUI Icons
-
-// CSS
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation, Outlet } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/App.css";
-
-const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
 
-  // useEffect(() => {
-  //   const token = sessionStorage.getItem("token");
-  //   if (token) {
-  //     dispatch(loginWithToken());
-  //   }
-  // }, []);
-
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+  const toggleDrawer = () => setShow(!show);
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          edge="start"
-          onClick={toggleDrawer}
-          sx={{ mr: 2 }}
-          aria-label="menu"
-        />
-      </Toolbar>
+    <div className="d-flex flex-column min-vh-100">
+      {/* 상단 Navbar */}
+      <nav className="navbar navbar-dark bg-dark">
+        <div className="container-fluid">
+          <button
+            className="btn btn-outline-light"
+            type="button"
+            onClick={toggleDrawer}
+          >
+            ☰ Menu
+          </button>
+          <span className="navbar-brand mb-0 h1">My App</span>
+        </div>
+      </nav>
 
-      <Drawer
-        variant="temporary"
-        open={open}
-        onClose={toggleDrawer}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
+      {/* Offcanvas 사이드 메뉴 */}
+      <div
+        className={`offcanvas offcanvas-start ${show ? "show" : ""}`}
+        tabIndex="-1"
+        style={{ visibility: show ? "visible" : "hidden" }}
       >
-        <Toolbar />
-        <List>
-          <ListItem component="button">
-            <ListItemIcon>
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title">Menu</h5>
+          <button
+            type="button"
+            className="btn-close text-reset"
+            onClick={toggleDrawer}
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          <ul className="list-unstyled">
+            <li>
+              <button
+                className="btn btn-link"
+                onClick={() => console.log("Go Home")}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                className="btn btn-link"
+                onClick={() => console.log("Settings")}
+              >
+                Settings
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-          <ListItem component="button">
-            <ListItemIcon>
-            </ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
-        </List>
-      </Drawer>
-
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          minHeight: "600px",
-        }}
-      >
+      {/* 메인 컨텐츠 */}
+      <main className="flex-grow-1 p-3">
         {children}
         <Outlet />
-      </Box>
-    </Box>
+      </main>
+    </div>
   );
 };
 
