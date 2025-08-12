@@ -55,7 +55,7 @@ const AppLayout = ({ children }) => {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            background: "#213547",
+            background: " #242424",
           },
         }}
       >
