@@ -26,7 +26,7 @@ const AppLayout = ({ children }) => {
           backgroundColor: "#242424",
         }}
       >
-        <Toolbar sx={{ px: 1 }}> 
+        <Toolbar sx={{ px: 1 }}>
           <IconButton
             color="inherit"
             edge="start"
@@ -58,11 +58,11 @@ const AppLayout = ({ children }) => {
       >
         <Toolbar />
         <List>
-          <ListItem button>
+          <ListItem component={button}>
             <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button>
+          <ListItem component={button}>
             <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
