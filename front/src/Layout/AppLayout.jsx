@@ -28,7 +28,7 @@ const AppLayout = ({ children }) => {
       >
         <Toolbar sx={{ px: 1 }}>
           <IconButton
-            color="inherit"
+            color="white"
             edge="start"
             onClick={toggleDrawer}
             aria-label="menu"
