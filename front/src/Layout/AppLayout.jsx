@@ -23,10 +23,10 @@ const AppLayout = ({ children }) => {
         position="fixed"
         sx={{
           zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "#213547",
+          backgroundColor: "#242424",
         }}
       >
-        <Toolbar sx={{ px: 1 }}>
+        <Toolbar sx={{ px: 1 }}> 
           <IconButton
             color="inherit"
             edge="start"
