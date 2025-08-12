@@ -13,8 +13,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 // Icons
-import HomeIcon from "@mui/icons-material/Home";
-import SettingsIcon from "@mui/icons-material/Settings";
+
 
 // CSS
 import "./style/App.css";
@@ -64,14 +63,12 @@ const AppLayout = ({ children }) => {
         <List>
           <ListItem component="button">
             <ListItemIcon>
-              <HomeIcon />
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
 
           <ListItem component="button">
             <ListItemIcon>
-              <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
