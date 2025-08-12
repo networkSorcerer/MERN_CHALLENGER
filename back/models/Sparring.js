@@ -6,7 +6,7 @@ const sparringSchema = Schema(
     result: { type: String, requird: true },
     memo: { type: String, required: true },
     confirm: { type: Boolean, default: false },
-    user: { type: mongoose.ObjectId, ref: User },
+    user: { type: mongoose.ObjectId, ref: User},
     opponent: { type: mongoose.ObjectId, ref: User },
     date: { type: Date, required: true },
   },

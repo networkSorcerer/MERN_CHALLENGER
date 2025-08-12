@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const User = require("./User");
+const Center = require("./Center");
 
 const classSchema = Schema(
   {
@@ -9,8 +10,8 @@ const classSchema = Schema(
     content: { type: String, required: true },
     category: { type: String, required: true },
     master: { type: String, default: false },
-    center: { type: mongoose.ObjectId, ref: "Center" },
-    user: { type: mongoose.ObjectId, ref: "User" },
+    center: { type: mongoose.ObjectId, ref: Center },
+    user: { type: mongoose.ObjectId, ref: User },
   },
   { timestamps: true }
 );
