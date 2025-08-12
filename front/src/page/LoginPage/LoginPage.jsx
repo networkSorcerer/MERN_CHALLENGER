@@ -11,16 +11,11 @@ const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, loginError } = useSelector((state) => state.user);
+  const { loginError } = useSelector((state) => state.user);
   const handleGoogleLogin = async (googleData) => {
     dispatch(loginWithGoogle(googleData.credential));
   };
-  useEffect(() => {
-    if (user) {
-      navigate("/main");
-    }
-    console.log("usersersersers", user);
-  }, [user, navigate]);
+
 
   return (
     <SidebarContainer>

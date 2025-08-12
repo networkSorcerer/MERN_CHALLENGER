@@ -15,6 +15,8 @@ const drawerWidth = 240;
 const AppLayout = ({ children }) => {
   const [open, setOpen] = useState(false);
   const token = sessionStorage.getItem("token");
+  const { user } = useSelector((state) => state.user);
+
   const toggleDrawer = () => setOpen(!open);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,6 +24,7 @@ const AppLayout = ({ children }) => {
       dispatch(loginWithToken());
     }
   }, []);
+
   return (
     <Box sx={{ display: "flex" }}>
       {/* 상단 고정 AppBar */}
