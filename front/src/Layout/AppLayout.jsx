@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-import loginWithToken from "../features/user/userSlice";
+import { loginWithToken } from "../features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import LoginPage from "../page/LoginPage/LoginPage";
