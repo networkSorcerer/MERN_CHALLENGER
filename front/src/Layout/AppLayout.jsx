@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import LoginPage from "../page/LoginPage/LoginPage";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const drawerWidth = 240;
 
@@ -18,7 +19,7 @@ const AppLayout = ({ children }) => {
   const [open, setOpen] = useState(false);
   const token = sessionStorage.getItem("token");
   const { user } = useSelector((state) => state.user);
-
+  const navigate = useNavigate();
   const toggleDrawer = () => setOpen(!open);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +27,11 @@ const AppLayout = ({ children }) => {
       dispatch(loginWithToken());
     }
   }, []);
-
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  });
   return (
     <Box sx={{ display: "flex" }}>
       {/* 상단 고정 AppBar */}
@@ -68,7 +73,7 @@ const AppLayout = ({ children }) => {
         }}
       >
         <Toolbar />
-       <LoginPage /> 
+        <LoginPage />
       </Drawer>
 
       {/* 메인 콘텐츠 영역 */}
