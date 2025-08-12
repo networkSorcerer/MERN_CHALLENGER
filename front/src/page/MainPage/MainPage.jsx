@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 const MainPage = () => {
   return (
     <ContentContainer>
-      <Typography varient="h1">WELCOME TO CHALLENGER</Typography>
+      <Typography variant="h1">WELCOME TO CHALLENGER</Typography>
     </ContentContainer>
   );
 };
