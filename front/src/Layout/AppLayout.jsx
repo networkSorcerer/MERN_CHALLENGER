@@ -58,11 +58,11 @@ const AppLayout = ({ children }) => {
       >
         <Toolbar />
         <List>
-          <ListItem component={button}>
+          <ListItem>
             <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem component={button}>
+          <ListItem>
             <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
