@@ -28,15 +28,14 @@ const AppLayout = ({ children }) => {
       >
         <Toolbar sx={{ px: 1 }}>
           <IconButton
-            color="white"
             edge="start"
             onClick={toggleDrawer}
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, color: "white" }}
           >
-            {" "}
             ☰
           </IconButton>
+
           <Typography variant="h6" noWrap component="div">
             Challenger{" "}
           </Typography>
