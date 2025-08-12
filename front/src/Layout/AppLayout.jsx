@@ -1,19 +1,98 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useLocation, Outlet } from "react-router-dom";
+
+// MUI
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
+// Icons
+import HomeIcon from "@mui/icons-material/Home";
+import SettingsIcon from "@mui/icons-material/Settings";
+
+// CSS
 import "./style/App.css";
+
+const drawerWidth = 240;
+
 const AppLayout = ({ children }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  // useEffect(() => {
-  //   const token = sessionStorage.getItem("token");
-  //   if (token) {
-  //     dispatch(loginWithToken());
-  //   }
-  // }, []);
 
-  return <div>{children}</div>;
+  const toggleDrawer = () => {
+    setOpen((prev) => !prev);
+  };
+
+  return (
+    <Box sx={{ display: "flex" }}>
+      {/* 상단 툴바 */}
+      <Toolbar>
+        <IconButton
+          color="inherit"
+          edge="start"
+          onClick={toggleDrawer}
+          sx={{ mr: 2 }}
+          aria-label="menu"
+        >
+          {/* 메뉴 아이콘은 필요하면 추가 */}
+        </IconButton>
+      </Toolbar>
+
+      {/* 좌측 사이드바 */}
+      <Drawer
+        variant="temporary"
+        open={open}
+        onClose={toggleDrawer}
+        ModalProps={{
+          keepMounted: true, // 모바일 성능 최적화
+        }}
+        sx={{
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            boxSizing: "border-box",
+          },
+        }}
+      >
+        <Toolbar />
+        <List>
+          <ListItem component="button">
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+
+          <ListItem component="button">
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary="Settings" />
+          </ListItem>
+        </List>
+      </Drawer>
+
+      {/* 메인 콘텐츠 영역 */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          minHeight: "600px",
+        }}
+      >
+        <Toolbar />
+        {children}
+        <Outlet />
+      </Box>
+    </Box>
+  );
 };
 
 export default AppLayout;
