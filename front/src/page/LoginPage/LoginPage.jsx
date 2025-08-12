@@ -13,7 +13,8 @@ const LoginPage = () => {
     dispatch(loginWithGoogle(googleData.credential));
   };
   const handleLogout = () => {
-    dispatch(logout());
+    sessionStorage.removeItem("token");
+    dispatch(clearUser());
     navigate("/");
   };
   return (
