@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginWithGoogle } from "../../features/user/userSlice";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import { ContentContainer } from "../../Layout/style/GlobalStyle";
+import { SidebarContainer } from "../../Layout/style/GlobalStyle";
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
@@ -23,7 +23,7 @@ const LoginPage = () => {
   }, [user, navigate]);
 
   return (
-    <ContentContainer>
+    <SidebarContainer>
       {loginError && (
         <div className="error-message">
           <Alert variant="danger">{loginError}</Alert>
@@ -39,7 +39,7 @@ const LoginPage = () => {
           />
         </GoogleOAuthProvider>
       </div>
-    </ContentContainer>
+    </SidebarContainer>
   );
 };
 

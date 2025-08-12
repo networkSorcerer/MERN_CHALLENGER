@@ -4,18 +4,21 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
+import loginWithToken from "../features/user/userSlice";
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => setOpen(!open);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      dispatch(loginWithToken());
+    }
+  }, []);
   return (
     <Box sx={{ display: "flex" }}>
       {/* 상단 고정 AppBar */}
@@ -57,16 +60,7 @@ const AppLayout = ({ children }) => {
         }}
       >
         <Toolbar />
-        <List>
-          <ListItem>
-            <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
-        </List>
+        <LoginPage />
       </Drawer>
 
       {/* 메인 콘텐츠 영역 */}
