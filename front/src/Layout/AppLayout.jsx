@@ -31,12 +31,12 @@ const AppLayout = ({ children }) => {
   return (
     <Box sx={{ display: "flex" }}>
       {/* 상단 툴바 */}
-      <Toolbar>
+      <Toolbar sx={{ minHeight: 56, px: 0 }}>
         <IconButton
           color="inherit"
           edge="start"
           onClick={toggleDrawer}
-          sx={{ mr: 2 }}
+          sx={{ ml: 0 }} // 왼쪽 마진 0
           aria-label="menu"
         >
           ☰
