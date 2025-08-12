@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, Outlet } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./style/App.css";
 
 const AppLayout = ({ children }) => {
