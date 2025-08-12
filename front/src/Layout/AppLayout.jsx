@@ -7,6 +7,8 @@ import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import loginWithToken from "../features/user/userSlice";
+import { useDispatch } from "react-redux";
+
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
