@@ -12,18 +12,13 @@ const AppLayout = ({ children }) => {
   const toggleDrawer = () => setShow(!show);
 
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div>
       {/* 상단 Navbar */}
-      <nav className="navbar navbar-dark bg-dark">
-        <div className="container-fluid">
-          <button
-            className="btn btn-outline-light"
-            type="button"
-            onClick={toggleDrawer}
-          >
+      <nav>
+        <div>
+          <button type="button" onClick={toggleDrawer}>
             ☰ Menu
           </button>
-          <span className="navbar-brand mb-0 h1">My App</span>
         </div>
       </nav>
 
@@ -33,31 +28,17 @@ const AppLayout = ({ children }) => {
         tabIndex="-1"
         style={{ visibility: show ? "visible" : "hidden" }}
       >
-        <div className="offcanvas-header">
+        <div>
           <h5 className="offcanvas-title">Menu</h5>
-          <button
-            type="button"
-            className="btn-close text-reset"
-            onClick={toggleDrawer}
-          ></button>
+          <button type="button" onClick={toggleDrawer}></button>
         </div>
-        <div className="offcanvas-body">
-          <ul className="list-unstyled">
+        <div>
+          <ul>
             <li>
-              <button
-                className="btn btn-link"
-                onClick={() => console.log("Go Home")}
-              >
-                Home
-              </button>
+              <button onClick={() => console.log("Go Home")}>Home</button>
             </li>
             <li>
-              <button
-                className="btn btn-link"
-                onClick={() => console.log("Settings")}
-              >
-                Settings
-              </button>
+              <button onClick={() => console.log("Settings")}>Settings</button>
             </li>
           </ul>
         </div>
