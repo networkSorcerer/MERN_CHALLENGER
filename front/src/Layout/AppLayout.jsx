@@ -29,7 +29,7 @@ const AppLayout = ({ children }) => {
         style={{ visibility: show ? "visible" : "hidden" }}
       >
         <div>
-          <h5 className="offcanvas-title">Menu</h5>
+          <h5>Menu</h5>
           <button type="button" onClick={toggleDrawer}></button>
         </div>
         <div>
@@ -45,7 +45,7 @@ const AppLayout = ({ children }) => {
       </div>
 
       {/* 메인 컨텐츠 */}
-      <main className="flex-grow-1 p-3">
+      <main>
         {children}
         <Outlet />
       </main>
