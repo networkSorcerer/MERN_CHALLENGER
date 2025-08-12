@@ -7,7 +7,9 @@ const classSchema = Schema(
     date: { type: String, required: true },
     title: { type: String, requird: true },
     content: { type: String, required: true },
+    category: { type: String, required: true },
     master: { type: Boolean, default: false },
+    center: { type: mongoose.ObjectId, ref: "Center" },
     user: { type: mongoose.ObjectId, ref: User },
   },
   { timestamps: true }
