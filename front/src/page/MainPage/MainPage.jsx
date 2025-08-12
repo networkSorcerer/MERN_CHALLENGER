@@ -1,5 +1,5 @@
 import React from "react";
-import ContentContainer from "../../Layout/style/GlobalStyle";
+import { ContentContainer } from "../../Layout/style/GlobalStyle";
 import Typography from "@mui/material/Typography";
 
 const MainPage = () => {
