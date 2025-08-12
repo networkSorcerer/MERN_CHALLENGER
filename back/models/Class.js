@@ -8,7 +8,7 @@ const classSchema = Schema(
     title: { type: String, requird: true },
     content: { type: String, required: true },
     category: { type: String, required: true },
-    master: { type: Boolean, default: false },
+    master: { type: String, default: false },
     center: { type: mongoose.ObjectId, ref: "Center" },
     user: { type: mongoose.ObjectId, ref: User },
   },
