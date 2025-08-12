@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import loginWithToken from "../features/user/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-
+import LoginPage from "../page/LoginPage/LoginPage";
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
