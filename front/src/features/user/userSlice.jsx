@@ -28,6 +28,10 @@ export const loginWithToken = createAsyncThunk(
   }
 );
 
+export const logout = (dispatch) => {
+  sessionStorage.removeItem("token");
+  dispatch(clearUser());
+};
 const userSlice = createSlice({
   name: "user",
   initialState: {
