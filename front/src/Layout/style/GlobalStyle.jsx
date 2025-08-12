@@ -1,7 +1,2 @@
-import React from "react";
-
-const GlobalStyle = () => {
-  return <div></div>;
-};
-
-export default GlobalStyle;
+const GlobalStyle = craeteGlabalStyle`
+`
