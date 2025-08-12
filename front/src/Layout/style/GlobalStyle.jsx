@@ -1,11 +1,10 @@
-import { creatGlobalStyle } from "styled-components";
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 
-const GlobalStyle = craeteGlabalStyle`
-`;
 
-export const Section = styled.section`
-  padding: 50px 0;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray};
-`;
+export const ContentContainer = styled(Box)(({ theme }) => ({
+  alignItems: "center",
+  width: "90%",
+  backgroundColor: theme.palette.background.default,
+  color: theme.palette.text.default,
+}));

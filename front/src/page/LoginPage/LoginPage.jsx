@@ -21,8 +21,7 @@ const LoginPage = () => {
   }, [user, navigate]);
 
   return (
-    <div>
-      <h1>Challenger</h1>
+    <ContentContainer>
       {loginError && (
         <div className="error-message">
           <Alert variant="danger">{loginError}</Alert>
@@ -38,7 +37,7 @@ const LoginPage = () => {
           />
         </GoogleOAuthProvider>
       </div>
-    </div>
+    </ContentContainer>
   );
 };
 
