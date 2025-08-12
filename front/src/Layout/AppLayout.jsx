@@ -14,7 +14,6 @@ import ListItemText from "@mui/material/ListItemText";
 
 // Icons
 
-
 // CSS
 import "./style/App.css";
 
@@ -40,7 +39,7 @@ const AppLayout = ({ children }) => {
           sx={{ mr: 2 }}
           aria-label="menu"
         >
-          {/* 메뉴 아이콘은 필요하면 추가 */}
+          ☰
         </IconButton>
       </Toolbar>
 
@@ -62,14 +61,12 @@ const AppLayout = ({ children }) => {
         <Toolbar />
         <List>
           <ListItem component="button">
-            <ListItemIcon>
-            </ListItemIcon>
+            <ListItemIcon></ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
 
           <ListItem component="button">
-            <ListItemIcon>
-            </ListItemIcon>
+            <ListItemIcon></ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
         </List>

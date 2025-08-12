@@ -4,9 +4,7 @@ import { Navigate, Outlet } from "react-router";
 
 const PrivateRoute = ({ permissionLevel }) => {
   const user = useSelector((state) => state.user.user);
-  useEffect(() => {
-    console.log("useruseruser", user);
-  }, [user]);
+
   const isAuthenticated =
     user?.auth === permissionLevel || user?.auth === "admin";
 
