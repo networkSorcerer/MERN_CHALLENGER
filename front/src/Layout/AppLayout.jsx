@@ -21,7 +21,10 @@ const AppLayout = ({ children }) => {
       {/* 상단 고정 AppBar */}
       <AppBar
         position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backgroundColor: "#213547",
+        }}
       >
         <Toolbar sx={{ px: 1 }}>
           <IconButton
@@ -34,9 +37,9 @@ const AppLayout = ({ children }) => {
             {" "}
             ☰
           </IconButton>
-          {/* <Typography variant="h6" noWrap component="div">
-            내 앱 제목
-          </Typography> */}
+          <Typography variant="h6" noWrap component="div">
+            Challenger{" "}
+          </Typography>
         </Toolbar>
       </AppBar>
 
