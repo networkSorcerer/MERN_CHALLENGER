@@ -10,7 +10,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
 
 const drawerWidth = 240;
 
@@ -33,11 +32,12 @@ const AppLayout = ({ children }) => {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            {" "}
+            ☰
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          {/* <Typography variant="h6" noWrap component="div">
             내 앱 제목
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
 
