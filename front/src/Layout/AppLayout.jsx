@@ -31,7 +31,7 @@ const AppLayout = ({ children }) => {
     if (!user) {
       navigate("/");
     }
-  });
+  }, [user]);
   return (
     <Box sx={{ display: "flex" }}>
       {/* 상단 고정 AppBar */}
