@@ -1,4 +1,4 @@
-import ContentContainer from "../../Layout/style/GlobalStyle";
+import { ContentContainer } from "../../Layout/style/GlobalStyle";
 
 function LandingPage() {
   return (
