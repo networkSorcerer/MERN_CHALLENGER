@@ -37,7 +37,7 @@ const AppLayout = ({ children }) => {
             {" "}
             ☰
           </IconButton>
-          <Typography variant="h1" noWrap component="div">
+          <Typography variant="h6" noWrap component="div">
             Challenger{" "}
           </Typography>
         </Toolbar>

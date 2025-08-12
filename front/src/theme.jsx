@@ -13,7 +13,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    h1: {
+    h6: {
       color: "#e81616ff", // h1 제목 색깔을 빨간 계열로 지정
     },
   },
