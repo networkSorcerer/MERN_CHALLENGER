@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import LoginPage from "../page/LoginPage/LoginPage";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-
+import { ContentContainer } from "../Layout/style/GlobalStyle";
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
@@ -77,18 +77,10 @@ const AppLayout = ({ children }) => {
       </Drawer>
 
       {/* 메인 콘텐츠 영역 */}
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          minHeight: "600px",
-          mt: "64px", // AppBar 높이만큼 margin-top 줌 (기본 64px)
-        }}
-      >
+      <ContentContainer>
         {children}
         <Outlet />
-      </Box>
+      </ContentContainer>
     </Box>
   );
 };

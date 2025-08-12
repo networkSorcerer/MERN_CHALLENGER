@@ -4,6 +4,7 @@ const theme = createTheme({
   palette: {
     background: {
       default: "#242424", // 배경색 설정
+      container: "#2d2f3bff",
     },
     text: {
       primary: "#fff", // 기본 텍스트 색상
@@ -17,6 +18,9 @@ const theme = createTheme({
       color: "#e81616ff", // h1 제목 색깔을 빨간 계열로 지정
     },
     h1: {
+      color: "#fff",
+    },
+    h3: {
       color: "#fff",
     },
   },
