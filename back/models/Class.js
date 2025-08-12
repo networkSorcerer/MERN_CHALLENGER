@@ -10,7 +10,7 @@ const classSchema = Schema(
     category: { type: String, required: true },
     master: { type: String, default: false },
     center: { type: mongoose.ObjectId, ref: "Center" },
-    user: { type: mongoose.ObjectId, ref: User },
+    user: { type: mongoose.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
