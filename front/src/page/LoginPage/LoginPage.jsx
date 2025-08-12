@@ -18,7 +18,7 @@ const LoginPage = () => {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     dispatch(clearUser());
-    navigate("/");
+   
   };
   return (
     <SidebarContainer>

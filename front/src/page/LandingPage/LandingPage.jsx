@@ -1,6 +1,7 @@
 import { ContentContainer } from "../../Layout/style/GlobalStyle";
 
 function LandingPage() {
+  
   return (
     <ContentContainer>
       <h1>Challenger</h1>
