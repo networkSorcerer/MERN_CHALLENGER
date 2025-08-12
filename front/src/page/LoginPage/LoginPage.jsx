@@ -1,7 +1,7 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
-import { loginWithGoogle, logout } from "../../features/user/userSlice";
+import { loginWithGoogle } from "../../features/user/userSlice";
 import { SidebarContainer } from "../../Layout/style/GlobalStyle";
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
