@@ -15,7 +15,7 @@ import ListItemText from "@mui/material/ListItemText";
 // Icons
 
 // CSS
-// import "./style/App.css";
+import "./style/App.css";
 
 const drawerWidth = 240;
 
