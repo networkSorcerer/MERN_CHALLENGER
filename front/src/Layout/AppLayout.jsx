@@ -14,10 +14,10 @@ const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const token = sessionStorage.getItem("token");
   const toggleDrawer = () => setOpen(!open);
   const dispatch = useDispatch();
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
     if (token) {
       dispatch(loginWithToken());
     }
