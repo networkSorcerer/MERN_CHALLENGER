@@ -10,7 +10,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
-
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
