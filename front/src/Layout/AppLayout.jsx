@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useLocation, Outlet } from "react-router-dom";
-
-// MUI
+import { Outlet } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -11,63 +8,60 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-
-// Icons
-
-// CSS
-// import "./style/App.css";
+import AppBar from "@mui/material/AppBar";
+import Typography from "@mui/material/Typography";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
-  const location = useLocation();
-  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setOpen((prev) => !prev);
-  };
+  const toggleDrawer = () => setOpen(!open);
 
   return (
     <Box sx={{ display: "flex" }}>
-      {/* 상단 툴바 */}
-      <Toolbar sx={{ minHeight: 56, px: 0 }}>
-        <IconButton
-          color="inherit"
-          edge="start"
-          onClick={toggleDrawer}
-          sx={{ ml: 0 }} // 왼쪽 마진 0
-          aria-label="menu"
-        >
-          ☰
-        </IconButton>
-      </Toolbar>
+      {/* 상단 고정 AppBar */}
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
+        <Toolbar sx={{ px: 1 }}>
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={toggleDrawer}
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            내 앱 제목
+          </Typography>
+        </Toolbar>
+      </AppBar>
 
-      {/* 좌측 사이드바 */}
+      {/* 좌측 Drawer */}
       <Drawer
         variant="temporary"
         open={open}
         onClose={toggleDrawer}
-        ModalProps={{
-          keepMounted: true, // 모바일 성능 최적화
-        }}
+        ModalProps={{ keepMounted: true }}
         sx={{
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
-            background: " #242424",
           },
         }}
       >
         <Toolbar />
         <List>
-          <ListItem component="button">
-            <ListItemIcon></ListItemIcon>
+          <ListItem button>
+            <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
-
-          <ListItem component="button">
-            <ListItemIcon></ListItemIcon>
+          <ListItem button>
+            <ListItemIcon>{/* 아이콘 넣기 가능 */}</ListItemIcon>
             <ListItemText primary="Settings" />
           </ListItem>
         </List>
@@ -80,9 +74,9 @@ const AppLayout = ({ children }) => {
           flexGrow: 1,
           p: 3,
           minHeight: "600px",
+          mt: "64px", // AppBar 높이만큼 margin-top 줌 (기본 64px)
         }}
       >
-        <Toolbar />
         {children}
         <Outlet />
       </Box>
