@@ -1,14 +1,15 @@
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import { Link as RouterLink } from "react-router-dom";
 
 export const ContentContainer = styled(Box)(({ theme }) => ({
-  marginTop: "10px",
+  marginTop: "30px",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
-  minHeight: "100vh",
+
   backgroundColor: theme.palette.background.default,
   color: theme.palette.text.primary,
   padding: theme.spacing(2),
@@ -21,7 +22,6 @@ export const ContentContainer = styled(Box)(({ theme }) => ({
 
 export const SidebarContainer = styled(Box)(({ theme }) => ({
   width: 240, // 고정 너비 (사이드바 일반적 너비)
-  height: "100vh", // 화면 전체 높이
   backgroundColor: theme.palette.background.default, // 테마 배경색 사용
   padding: theme.spacing(2), // 기본 패딩
   display: "flex",
@@ -62,4 +62,26 @@ export const WideCard = styled(Box)(({ theme }) => ({
   color: "black",
   flexDirection: "column",
   justifyContent: "center",
+}));
+
+export const AdminLink = styled(RouterLink)(() => ({
+  color: "white",
+  textDecoration: "none",
+  "&:hover": {
+    color: "#ddd",
+  },
+}));
+
+export const SubContainer = styled(Box)(({ theme }) => ({
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  gap: theme.spacing(3),
+  backgroundColor: "#3c3b3bff",
+  maxHeight: "450px",
+  padding: theme.spacing(4),
+  color: "#ffffffff", // 글자색 전체 적용
+  borderRadius: "10px",
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)", // 그림자 추가
 }));

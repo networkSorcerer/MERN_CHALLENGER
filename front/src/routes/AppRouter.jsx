@@ -7,6 +7,8 @@ import ClassPage from "../page/ClassPage/ClassPage.jsx";
 import SparringPage from "../page/SparringPage/SparringPage.jsx";
 import FriendPage from "../page/FriendPage/FriendPage.jsx";
 import CommitPage from "../page/CommitPage/CommitPage.jsx";
+import CenterPage from "../page/CenterPage/CenterPage.jsx";
+
 const AppRouter = () => {
   return (
     <Routes>
@@ -18,6 +20,10 @@ const AppRouter = () => {
         <Route path="/sparring" element={<SparringPage />} />
         <Route path="/friend" element={<FriendPage />} />
         <Route path="/commit" element={<CommitPage />} />
+      </Route>
+      <Route element={<PrivateRoute permissionLevel="admin" />}>
+        <Route path="/admin/center" element={<CenterPage />} />
+        {/* <Route path="/center" element={<CenterPage />} /> */}
       </Route>
     </Routes>
   );

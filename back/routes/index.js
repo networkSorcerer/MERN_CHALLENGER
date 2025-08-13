@@ -10,4 +10,5 @@ router.use("/auth", authApi);
 router.use("/center", centerApi);
 router.use("/class", classApi);
 router.use("/user", userApi);
+
 module.exports = router;

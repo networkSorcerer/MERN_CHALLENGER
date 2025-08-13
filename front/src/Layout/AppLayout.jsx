@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import SideMenu from "./component/SideMenu";
+import Profile from "./component/Profile";
 import { Outlet } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,6 +15,7 @@ import LoginPage from "../page/LoginPage/LoginPage";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { ContentContainer } from "../Layout/style/GlobalStyle";
+import { Link as RouterLink } from "react-router-dom";
 const drawerWidth = 240;
 
 const AppLayout = ({ children }) => {
@@ -52,8 +55,18 @@ const AppLayout = ({ children }) => {
             ☰
           </IconButton>
 
-          <Typography variant="h6" noWrap component="div">
-            Challenger{" "}
+          <Typography
+            variant="h6"
+            noWrap
+            component={RouterLink}
+            to="/main"
+            sx={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "red",
+            }}
+          >
+            Challenger
           </Typography>
         </Toolbar>
       </AppBar>
@@ -73,6 +86,8 @@ const AppLayout = ({ children }) => {
         }}
       >
         <Toolbar />
+        <Profile user={user} />
+        <SideMenu user={user} />
         <LoginPage />
       </Drawer>
 

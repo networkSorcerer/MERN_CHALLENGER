@@ -17,7 +17,9 @@ const MainPage = () => {
   }, [user, navigate]);
   return (
     <ContentContainer>
-      <Typography variant="h1">WELCOME TO CHALLENGER</Typography>
+      <Typography variant="h3">WELCOME</Typography>
+      <Typography variant="h3">TO</Typography>
+      <Typography variant="h3">CHALLENGER</Typography>
     </ContentContainer>
   );
 };

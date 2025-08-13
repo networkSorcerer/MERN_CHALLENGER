@@ -27,7 +27,7 @@ const LoginPage = () => {
       )}
       {user ? (
         <div onClick={handleLogout}>
-          <p>logout</p>
+          <p>LOG-OUT</p>
         </div>
       ) : (
         <div className="card">

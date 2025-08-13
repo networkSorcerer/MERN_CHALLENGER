@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const Center = require("./Center");
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const userSchema = Schema(
   {
@@ -9,7 +10,9 @@ const userSchema = Schema(
     password: { type: String, required: true },
     name: { type: String, required: true },
     level: { type: String, default: "white" },
+    profile: { type: String },
     auth: { type: String, default: "member" },
+    center: { type: mongoose.ObjectId, ref: Center },
   },
   { timestamps: true }
 );
