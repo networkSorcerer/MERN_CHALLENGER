@@ -6,11 +6,10 @@ const Center = require("./Center");
 const classSchema = Schema(
   {
     date: { type: String, required: true },
-    title: { type: String, requird: true },
+    title: { type: String, required: true },
     content: { type: String, required: true },
     category: { type: String, required: true },
-    master: { type: String, default: false },
-    center: { type: mongoose.ObjectId, ref: Center },
+    master: { type: String, default: "false" },
     user: { type: mongoose.ObjectId, ref: User },
   },
   { timestamps: true }

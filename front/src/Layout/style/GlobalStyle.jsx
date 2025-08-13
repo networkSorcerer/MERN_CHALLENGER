@@ -79,7 +79,7 @@ export const SubContainer = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   gap: theme.spacing(3),
   backgroundColor: "#3c3b3bff",
-  maxHeight: "450px",
+  // maxHeight: "450px",
   padding: theme.spacing(4),
   color: "#ffffffff", // 글자색 전체 적용
   borderRadius: "10px",

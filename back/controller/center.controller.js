@@ -2,7 +2,6 @@ const Center = require("../models/Center");
 const centerController = {};
 centerController.addCenter = async (req, res) => {
   try {
-    console.log("bbbbbb", req.body);
     const { centerName, centerLocation, master } = req.body;
     const center = new Center({
       name: centerName,
