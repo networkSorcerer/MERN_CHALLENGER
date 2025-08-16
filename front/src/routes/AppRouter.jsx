@@ -9,12 +9,14 @@ import FriendPage from "../page/FriendPage/FriendPage.jsx";
 import CommitPage from "../page/CommitPage/CommitPage.jsx";
 import CenterPage from "../page/CenterPage/CenterPage.jsx";
 import Calendar from "../page/Calendar/Calendar.jsx";
+import Chatting from "../page/Websocket/Chatting.jsx";
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route element={<PrivateRoute permissionLevel="member" />}>
         {" "}
+        <Route path="/chatting" element={<Chatting />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/main" element={<LandingPage />} />
         <Route path="/class" element={<ClassPage />} />
