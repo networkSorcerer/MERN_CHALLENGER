@@ -13,7 +13,6 @@ const MainPage = () => {
     if (user) {
       navigate("/main");
     }
-    console.log("usersersersers", user);
   }, [user, navigate]);
   return (
     <ContentContainer>

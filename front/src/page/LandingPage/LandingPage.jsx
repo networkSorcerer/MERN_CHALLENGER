@@ -19,7 +19,7 @@ function LandingPage() {
         <WideCard onClick={() => navigate("/friend")}>
           <Typography variant="h3">친구 목록</Typography>
         </WideCard>
-        <WideCard onClick={() => navigate("/commit")}>
+        <WideCard onClick={() => navigate("/calendar")}>
           <Typography variant="h3">1일1 주짓수</Typography>
         </WideCard>
       </MainContainer>

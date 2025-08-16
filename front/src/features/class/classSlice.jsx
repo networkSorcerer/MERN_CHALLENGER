@@ -13,6 +13,17 @@ export const addClass = createAsyncThunk(
   }
 );
 
+export const getLurnedDay = createAsyncThunk(
+  "class/getLurnedDay",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await api.get("class/day");
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.error);
+    }
+  }
+);
 const classSlice = createSlice({
   name: "class",
   initialState: {
@@ -21,6 +32,7 @@ const classSlice = createSlice({
     loading: false,
     error: "",
     success: false,
+    lurnday: [],
   },
   reducer: {
     setSelectClass: (state, action) => {
@@ -48,6 +60,18 @@ const classSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
         state.success = false;
+      })
+      .addCase(getLurnedDay.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(getLurnedDay.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = "";
+        state.lurnday = action.payload.data;
+      })
+      .addCase(getLurnedDay.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
