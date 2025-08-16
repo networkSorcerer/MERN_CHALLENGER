@@ -1,47 +1,77 @@
 import { useEffect, useRef, useState } from "react";
-// import Loader from "./Loader";
 
-export default function Chatting() {
-  const ws = (useRef < WebSocket) | (null > null);
-  const cctvUrl = "wss://cctv.example.com"; // cctv webSocekt Url
-  const [cctvData, setCctvData] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+const Chatting = () => {
+  const ws = useRef(null);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [user, setUser] = useState("");
 
   useEffect(() => {
-    ws.current = new WebSocket(cctvUrl);
-    ws.current.onopen = () => {
-      console.log("WebSocket connection opened.");
-      setIsLoading(false);
-    };
+    const name = prompt("사용자 이름을 입력하세요:", "익명");
+    setUser(name || "익명");
+
+    ws.current = new WebSocket("ws://localhost:5555");
+
+    ws.current.onopen = () => console.log("WebSocket connected");
+
     ws.current.onmessage = (event) => {
-      if (event.data) {
-        const base64ImageData = "data:image/jpg;base64," + event.data;
-        setCctvData(base64ImageData);
+      try {
+        const data = JSON.parse(event.data);
+        setMessages((prev) => [...prev, `${data.user}: ${data.text}`]);
+      } catch {
+        console.log("Invalid message received");
       }
-    };
-    ws.current.onerror = () => console.log("WebSocket Error");
-    ws.current.onclose = () => {
-      console.log("Websocket connection is closed");
     };
 
+    ws.current.onerror = () => console.log("WebSocket Error");
+    ws.current.onclose = () => console.log("WebSocket closed");
+
     return () => {
-      if (ws.current && ws.current.readyState === 1) {
-        ws.current.close();
-      }
+      if (ws.current && ws.current.readyState === 1) ws.current.close();
     };
   }, []);
 
+  const sendMessage = () => {
+    if (ws.current && ws.current.readyState === 1 && input.trim() !== "") {
+      ws.current.send(JSON.stringify({ user, text: input }));
+      setInput("");
+    }
+  };
+
   return (
-    <div className="cctv-container relative">
-      {/* {isLoading && <Loader />} */}
-      <img
-        id="imageCCTV"
-        width="360"
-        height="220"
-        src={cctvData}
-        alt="CCTV"
-        className={`cctv-image rounded-lg ${isLoading ? "hidden" : ""}`}
+    <div
+      style={{ width: "400px", margin: "20px auto", fontFamily: "sans-serif" , color:"#fdfafaff"}}
+    >
+      <h2>실시간 채팅</h2>
+      <div
+        style={{
+          border: "1px solid #ccc",
+          padding: "10px",
+          height: "300px",
+          overflowY: "auto",
+          marginBottom: "10px",
+          background: "#1d1b1bff",
+        }}
+      >
+        {messages.map((msg, idx) => (
+          <div key={idx}>{msg}</div>
+        ))}
+      </div>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyPress={(e) => e.key === "Enter" && sendMessage()}
+        style={{ width: "70%", padding: "5px" }}
       />
+      <button
+        onClick={sendMessage}
+        style={{ width: "28%", marginLeft: "2%", padding: "5px" }}
+      >
+        전송
+      </button>
     </div>
   );
-}
+};
+
+export default Chatting;
